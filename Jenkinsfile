@@ -1,7 +1,6 @@
 pipeline {
-  agent{
-        docker { image 'python:3' }
-    }
+  container ('utils') {
+  agent any
   stages {
     stage('version') {
       steps {
@@ -13,5 +12,6 @@ pipeline {
         sh 'python3 hello.py'
       }
     }
+  }
   }
 }
